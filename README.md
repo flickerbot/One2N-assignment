@@ -55,17 +55,41 @@ To install this application on your Kubernetes cluster, follow these steps:
    cd rabbitmq-deployment-one2nfinal
   
 2. **Install the Helm Chart**: 
-   helm install rabbitmq-one2n ./rabbitmq-deployment-one2nfinal-0.1.0.tgz
+  ```bash
+    helm install rabbitmq-one2n ./rabbitmq-deployment-one2nfinal-0.1.0.tgz
 
 3. **Verify the Installation**
+ ```bash
+  
    kubectl get all
 
 4. **Access RabbitMQ Management UI**:
-   kubectl port-forward svc/rabbitmq-service 15672:15672
+ ```bash
+  
+ kubectl port-forward svc/rabbitmq-service 15672:15672
 
 Open http://localhost:15672 in your browser and log in using the default credentials:
-Username: admin                                       # you can change these credentials by changing the values in values.yaml file 
-Password: admin123                                    
+```
+
+- Username: admin                                       # you can change these credentials by changing the values in values.yaml file 
+- Password: admin123                                    
+
+
+##Architecture Diagram 
+
+  - A relative path: `./architecture.png`
+
+
+
+
+## Video Demo
+
+You can watch the demo video of this application here:  
+[Demo Video](https://drive.google.com/file/d/1kN18ReDJrBLfo_vV1zuPeiL0OQxCSOsd/view?usp=drive_link)
+
+
+
+
 
 
 
