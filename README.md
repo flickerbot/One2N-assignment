@@ -52,7 +52,7 @@ To install this application on your Kubernetes cluster, follow these steps:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/flickerbot/One2N-assignment
-   cd rabbitmq-deployment-one2nfinal
+   cd One2N-assignment 
   
 2. **Install the Helm Chart**: 
   ```bash
