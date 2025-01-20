@@ -21,7 +21,7 @@ RABBITMQ_USER = os.getenv("RABBITMQ_USER")
 RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD")
 
 # RabbitMQ API URL to fetch queue depth
-#RABBITMQ_URL = f"http://localhost:15672/api/queues/%2F/my-queue"
+#RABBITMQ_URL = f"http://localhost:15672/api/queues/%2F/my-queue"         # for testing the code withoot pod and running it manually 
 RABBITMQ_URL = f"http://{RABBITMQ_HOST}:15672/api/queues/%2F/my-queue"
 # Consumer Deployment details
 NAMESPACE = "default"

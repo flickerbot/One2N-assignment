@@ -26,8 +26,8 @@
 
 3. **Custom Scaler**:
    - The **Custom Scaler** logic is implemented using a Python script that leverages the RabbitMQ HTTP API to fetch the queue depth.
-     To make the process automated rather than running the script manuually I have created a docker image that is running the scaling logic in the customscaler pod. 
-     I HAVE UPLOADED THE CODE FOR THIS IN CODE DIRECTORY 
+     To make the process automated rather than running the script manually I have created a docker image that is running the scaling logic in the customscaler pod. 
+   - CODE FOR THIS CAN BE FOUND IN CODE DIRECTORY 
 
     -- Basic working of the custom scaler --  
    - If the queue depth exceeds the upper threshold, the custom scaler increases the number of consumer pods.
@@ -52,32 +52,28 @@ To install this application on your Kubernetes cluster, follow these steps:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/flickerbot/One2N-assignment
-   cd rabbitmq-deployment-one2nfinal
+   cd One2N-assignment 
   
 2. **Install the Helm Chart**: 
   ```bash
     helm install rabbitmq-one2n ./rabbitmq-deployment-one2nfinal-0.1.0.tgz
-
+   ```
 3. **Verify the Installation**
  ```bash
-  
    kubectl get all
-
+```
 4. **Access RabbitMQ Management UI**:
  ```bash
-  
  kubectl port-forward svc/rabbitmq-service 15672:15672
-
-Open http://localhost:15672 in your browser and log in using the default credentials:
+ Open http://localhost:15672 in your browser and log in using the default credentials:
 ```
 
-- Username: admin                                       # you can change these credentials by changing the values in values.yaml file 
+- Username: admin                                      
 - Password: admin123                                    
 
 
-##Architecture Diagram 
-
-  - A relative path: `./architecture.png`
+## Architecture Diagram 
+  ![Architecture Diagram](./architecture.png)
 
 
 
