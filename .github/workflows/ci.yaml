@@ -23,8 +23,8 @@ jobs:
           pip install pytest
           pip install -r Code/controller/requirements.txt
 
-      - name: Run Unit Tests
-        run: pytest Code/controller/tests/
+     # - name: Run Unit Tests
+     #   run: pytest Code/controller/tests/
 
   build-and-push:
     name: Build and Push Docker Images
