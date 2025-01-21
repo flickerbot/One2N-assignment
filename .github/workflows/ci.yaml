@@ -42,7 +42,7 @@ jobs:
 
       - name: Build and Push Controller Image
         run: |
-          docker build -t flickerbot/controller:latest -f Code/controller .
+          docker build -t flickerbot/controller:latest -f Code/controller/Dockerfile Code/controller
           docker push flickerbot/controller:latest
 
   #update-helm:
