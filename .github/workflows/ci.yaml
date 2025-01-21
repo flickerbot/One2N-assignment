@@ -81,6 +81,11 @@ jobs:
 
       - name: Deploy with Helm
         run: |
-          helm upgrade --install custom-controller ./helm-chart \
-            --set controller.image=flickerbot/controller \
-            --set controller.tag=dev
+          #helm upgrade --install custom-controller ./helm-chart \
+           # --set controller.image=flickerbot/controller \
+           # --set controller.tag=dev
+           helm upgrade --install custom-controller ./rabbitmq-deployment-one2nfinal-0.1.0.tgz \
+           --kubeconfig ~/.kube/config
+
+
+
