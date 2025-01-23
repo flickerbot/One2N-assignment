@@ -19,6 +19,10 @@ v1_core = client.CoreV1Api()
 RABBITMQ_HOST = os.getenv("RABBITMQ_HOST")
 RABBITMQ_USER = os.getenv("RABBITMQ_USER")
 RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD")
+QUEUE_THRESHOLD_UPPER = 3
+QUEUE_THRESHOLD_LOWER = 1
+
+
 
 # RabbitMQ API URL to fetch queue depth
 #RABBITMQ_URL = f"http://localhost:15672/api/queues/%2F/my-queue"         # for testing the code withoot pod and running it manually 
