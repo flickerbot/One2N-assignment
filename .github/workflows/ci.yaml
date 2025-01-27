@@ -79,14 +79,39 @@ jobs:
         with:
           version: 'latest'
 
-      - name: Deploy with Helm
-        run: |
+     #- name: Deploy with Helm
+     #  run: |
           #helm upgrade --install custom-controller ./helm-chart \
            # --set controller.image=flickerbot/controller \
            # --set controller.tag=dev
-           helm upgrade --install rabbitmq-one2n ./rabbitmq-deployment-one2nfinal-0.1.0.tgz \
-             --kubeconfig ~/.kube/config \
-             --set existingSecret=true
+     #     helm upgrade --install rabbitmq-one2n ./rabbitmq-deployment-one2nfinal-0.1.0.tgz \
+    #        --kubeconfig ~/.kube/config \
+    #        --set existingSecret=true
+
+
+      - name: Install ArgoCD CLI
+        run: |
+          curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+          argocd version
+
+      - name: Login to ArgoCD
+        run: |
+          argocd login ${{ secrets.ARGOCD_SERVER }} \
+            --username ${{ secrets.ARGOCD_USERNAME }} \
+            --password ${{ secrets.ARGOCD_PASSWORD }} \
+            --insecure
+
+      - name: Sync ArgoCD Application
+        run: |
+          argocd app sync rabbitmq1
+
+      - name: Check ArgoCD Application Health
+        run: |
+          argocd app wait rabbitmq1 --health --timeout 300
+
+
+
 
 
 
